@@ -33,31 +33,46 @@
     <section class="products">
         <h2>Nos Produits</h2>
 
-        <div class="product-container">
+        <div class="product-container" id="product-container">
 
-            <div class="card">
-                <img src="1image.webp" alt="Crème">
-                <h3><i class="fa-solid fa-pump-soap"></i> Crème Hydratante</h3>
-                <p>120 MAD</p>
-                <button>commander via whatsapp</button>
-            </div>
-
-            <div class="card">
-                <img src="2image.jpg" alt="Vitamine">
-                <h3><i class="fa-solid fa-capsules"></i> Vitamine C</h3>
-                <p>80 MAD</p>
-                <button>commander via whatsapp</button>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88" alt="Thermomètre">
-                <h3><i class="fa-solid fa-thermometer"></i> Thermomètre Digital</h3>
-                <p>150 MAD</p>
-                <button>commander via whatsapp</button>
-            </div>
+            <div class="card" id="card1"></div>
+            <div class="card" id="card2"></div>
+            <div class="card" id="card3"></div>
 
         </div>
     </section>
+    <script>
+    // IDs ديال divs
+    const cardIds = ["card1", "card2", "card3"];
+    const container = document.getElementById("product-container");
+
+    // fetch المنتجات من DB عبر API
+    fetch('http://localhost:3000/api/products')
+    .then(res => res.json())
+    .then(products => {
+        products.forEach((product, index) => {
+            const card = document.getElementById(cardIds[index]);
+            if(!card) return;
+
+            // innerHTML من data حقيقية
+            card.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3><i class="fa-solid ${product.icon || 'fa-capsules'}"></i> ${product.name}</h3>
+                <p>${product.price} MAD</p>
+                <button onclick="orderWhatsApp('${product.name}', ${product.price})">
+                    commander via whatsapp
+                </button>
+            `;
+        });
+    })
+    .catch(err => console.error(err));
+
+    function orderWhatsApp(name, price) {
+        const phone = "212600000000"; // رقم ديالك
+        const message = `Salam, je veux commander: ${name} pour ${price} MAD.`;
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+    }
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -66,3 +81,4 @@
 
 </body>
 </html>
+
