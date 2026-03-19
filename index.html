@@ -4,81 +4,84 @@
     <meta charset="UTF-8">
     <title>ParaPharma Santé+</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Icons (Font Awesome) -->
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
-    <header>
-        <div class="logo">
-            <i class="fa-solid fa-heart-pulse"></i> ParaPharma Santé+
+<!-- Navbar -->
+<header>
+    <div class="logo">
+        <i class="fa-solid fa-heart-pulse"></i> ParaPharma Santé+
+    </div>
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#">Produits</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Votre santé, notre priorité</h1>
+    <p>Produits certifiés et de qualité</p>
+    <button>Voir les produits</button>
+</section>
+
+<!-- Produits -->
+<section class="products">
+    <h2>Nos Produits</h2>
+
+    <div class="product-container">
+
+        <!-- Produit 1 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/200" alt="Paracétamol">
+            <h3><i class="fa-solid fa-capsules"></i> Paracétamol</h3>
+            <p>30 MAD</p>
+            <button onclick="orderWhatsApp('Paracétamol', 30)">
+                Commander via WhatsApp
+            </button>
         </div>
-        <nav>
-            <a href="#">Accueil</a>
-            <a href="#">Produits</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Votre santé, notre priorité</h1>
-        <p>Produits certifiés et de qualité</p>
-        <button>Voir les produits</button>
-    </section>
-
-    <!-- Produits -->
-    <section class="products">
-        <h2>Nos Produits</h2>
-
-        <div class="product-container" id="product-container">
-
-            <div class="card" id="card1"></div>
-            <div class="card" id="card2"></div>
-            <div class="card" id="card3"></div>
-
+        <!-- Produit 2 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/200" alt="Vitamine C">
+            <h3><i class="fa-solid fa-tablets"></i> Vitamine C</h3>
+            <p>50 MAD</p>
+            <button onclick="orderWhatsApp('Vitamine C', 50)">
+                Commander via WhatsApp
+            </button>
         </div>
-    </section>
-    <script>
-    // IDs ديال divs
-    const cardIds = ["card1", "card2", "card3"];
-    const container = document.getElementById("product-container");
 
-    // fetch المنتجات من DB عبر API
-    fetch('http://localhost:3000/api/products')
-    .then(res => res.json())
-    .then(products => {
-        products.forEach((product, index) => {
-            const card = document.getElementById(cardIds[index]);
-            if(!card) return;
+        <!-- Produit 3 -->
+        <div class="card">
+            <img src="https://via.placeholder.com/200" alt="Gel désinfectant">
+            <h3><i class="fa-solid fa-pump-medical"></i> Gel désinfectant</h3>
+            <p>25 MAD</p>
+            <button onclick="orderWhatsApp('Gel désinfectant', 25)">
+                Commander via WhatsApp
+            </button>
+        </div>
 
-            // innerHTML من data حقيقية
-            card.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h3><i class="fa-solid ${product.icon || 'fa-capsules'}"></i> ${product.name}</h3>
-                <p>${product.price} MAD</p>
-                <button onclick="orderWhatsApp('${product.name}', ${product.price})">
-                    commander via whatsapp
-                </button>
-            `;
-        });
-    })
-    .catch(err => console.error(err));
+    </div>
+</section>
 
-    function orderWhatsApp(name, price) {
-        const phone = "212600000000"; // رقم ديالك
-        const message = `Salam, je veux commander: ${name} pour ${price} MAD.`;
-        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
-    }
-    </script>
+<!-- Script WhatsApp فقط -->
+<script>
+function orderWhatsApp(name, price) {
+    const phone = "212600000000";
+    const message = `Salam, je veux commander: ${name} pour ${price} MAD.`;
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+}
+</script>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 ParaPharma Santé+ | Tous droits réservés</p>
-    </footer>
+<!-- Footer -->
+<footer>
+    <p>© 2026 ParaPharma Santé+ | Tous droits réservés</p>
+</footer>
 
 </body>
 </html>
-
