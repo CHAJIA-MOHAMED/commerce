@@ -3,58 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple E-Commerce Store</title>
+    <title>Storkom - Women's Accessories Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Storkom</div>
+            <ul class="nav-links">
+                <li><a href="#products">Shop</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
         <div class="container">
-            <h1>🛍️ Simple Store</h1>
-            <p>Quality products delivered to your doorstep</p>
+            <h1>Welcome to Storkom</h1>
+            <p>Your favorite store for women's accessories</p>
         </div>
     </header>
 
     <main class="container">
-        <section class="products-section">
-            <h2>Our Products</h2>
+        <section class="products-section" id="products">
+            <h2>Our Accessories Collection</h2>
             <div class="products-grid" id="productsGrid">
-                <div class="product-card" data-product-id="1" data-product-name="Wireless Headphones" data-product-price="79.99">
+                <div class="product-card" data-product-id="1" data-product-name="Gold Pendant Necklace" data-product-price="299">
                     <div class="product-image">
-                        <img src="images/product1.jpg" alt="Wireless Headphones" onerror="this.src='https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                        <img src="images/product1.jpg" alt="Gold Pendant Necklace" onerror="this.src='https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=800'">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Wireless Headphones</h3>
-                        <p class="product-description">Premium sound quality with active noise cancellation</p>
+                        <h3 class="product-name">Gold Pendant Necklace</h3>
+                        <p class="product-description">Elegant gold necklace with beautiful pendant</p>
                         <div class="product-footer">
-                            <span class="product-price">$79.99</span>
+                            <span class="product-price">299 DH</span>
                             <button class="btn-order" onclick="openOrderForm(this)">Order Now</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-product-id="2" data-product-name="Smart Watch" data-product-price="199.99">
+                <div class="product-card" data-product-id="2" data-product-name="Silver Ring Set" data-product-price="199">
                     <div class="product-image">
-                        <img src="images/product2.jpg" alt="Smart Watch" onerror="this.src='https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                        <img src="images/product2.jpg" alt="Silver Ring Set" onerror="this.src='https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=800'">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Smart Watch</h3>
-                        <p class="product-description">Track your fitness and stay connected</p>
+                        <h3 class="product-name">Silver Ring Set</h3>
+                        <p class="product-description">Minimalist silver rings - set of 3</p>
                         <div class="product-footer">
-                            <span class="product-price">$199.99</span>
+                            <span class="product-price">199 DH</span>
                             <button class="btn-order" onclick="openOrderForm(this)">Order Now</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card" data-product-id="3" data-product-name="Portable Speaker" data-product-price="49.99">
+                <div class="product-card" data-product-id="3" data-product-name="Crystal Bracelet" data-product-price="249">
                     <div class="product-image">
-                        <img src="images/product3.jpg" alt="Portable Speaker" onerror="this.src='https://images.pexels.com/photos/1279406/pexels-photo-1279406.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                        <img src="images/product3.jpg" alt="Crystal Bracelet" onerror="this.src='https://images.pexels.com/photos/1126602/pexels-photo-1126602.jpeg?auto=compress&cs=tinysrgb&w=800'">
                     </div>
                     <div class="product-info">
-                        <h3 class="product-name">Portable Speaker</h3>
-                        <p class="product-description">Powerful sound in a compact design</p>
+                        <h3 class="product-name">Crystal Bracelet</h3>
+                        <p class="product-description">Beautiful crystal beaded bracelet</p>
                         <div class="product-footer">
-                            <span class="product-price">$49.99</span>
+                            <span class="product-price">249 DH</span>
+                            <button class="btn-order" onclick="openOrderForm(this)">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="4" data-product-name="Luxury Jewelry Set" data-product-price="599">
+                    <div class="product-image">
+                        <img src="images/product4.jpg" alt="Luxury Jewelry Set" onerror="this.src='https://images.pexels.com/photos/162425/pexels-photo-162425.jpeg?auto=compress&cs=tinysrgb&w=800'">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Luxury Jewelry Set</h3>
+                        <p class="product-description">Complete necklace, bracelet & earring set</p>
+                        <div class="product-footer">
+                            <span class="product-price">599 DH</span>
                             <button class="btn-order" onclick="openOrderForm(this)">Order Now</button>
                         </div>
                     </div>
@@ -91,7 +115,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Simple Store. All rights reserved.</p>
+            <p>&copy; 2026 Storkom - All rights reserved.</p>
+            <p class="footer-tagline">Women's accessories store</p>
         </div>
     </footer>
 

@@ -14,7 +14,7 @@ function openOrderForm(button) {
     selectedProduct.price = productPrice;
 
     document.getElementById('orderProductName').textContent = productName;
-    document.getElementById('orderProductPrice').textContent = `$${productPrice}`;
+    document.getElementById('orderProductPrice').textContent = `${productPrice} DH`;
 
     document.getElementById('orderModal').style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -67,12 +67,10 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
 
 function createWhatsAppMessage(productName, productPrice, customerName, customerPhone, customerAddress) {
     const message = `
-🛍️ NEW ORDER
+New order from Storkom:
 
-📦 Product: ${productName}
-💰 Price: $${productPrice}
-
-👤 Customer Details:
+Product: ${productName}
+Price: ${productPrice} DH
 Name: ${customerName}
 Phone: ${customerPhone}
 Address: ${customerAddress}
@@ -84,5 +82,5 @@ Please confirm this order. Thank you!
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('E-commerce store loaded successfully!');
+    console.log('Storkom store loaded successfully!');
 });
